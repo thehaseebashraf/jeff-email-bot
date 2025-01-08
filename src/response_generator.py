@@ -2,6 +2,11 @@
 import os
 import requests
 
+from dotenv import load_dotenv
+import os
+
+load_dotenv() 
+
 def generate_email_response(email_subject, email_body, similar_content):
     """
     Generate email response using OpenAI with context from similar content
@@ -14,8 +19,9 @@ def generate_email_response(email_subject, email_body, similar_content):
     Returns:
         Generated response text
     """
-    OPENAI_API_KEY = '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'    
-    # if not OPENAI_API_KEY:
+    OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+    if not OPENAI_API_KEY:
+        raise ValueError("OpenAI API key not found in environment variables")    # if not OPENAI_API_KEY:
     #     raise ValueError("OpenAI API key not found")
     
     # Format the context from similar content
