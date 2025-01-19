@@ -15,8 +15,7 @@ def create_reply_message(original_email, reply_text):
        f"{reply_text}\n\n"
        f"On {original_date}, {original_sender} wrote:\n"
        f"  Subject: {original_subject}\n"
-       f"  {original_body.replace('\n', '\n  ')}"
-   )
+       f"  {original_body.replace('\n', '\n  ')}")
 
 
    message = MIMEText(full_message)
